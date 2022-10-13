@@ -28,7 +28,7 @@ import './styles.css';
  
  //Función para registrar nombre del jugador
  const RegNombre = () => {
-         nombre = prompt('Ingresa tu nombre');
+         nombre = prompt('Enter your name, human');
          sessionStorage.setItem("nombre",nombre);
          ubicNombre.innerText = nombre;
  }
@@ -59,7 +59,7 @@ import './styles.css';
  const pedirCarta = () => {
  
      if (deck.length === 0) {
-         throw "Ups, no hay más cartas en la baraja.";
+         throw "There is no more cards on the deck";
      }
  
      let carta = deck.pop(deck);
@@ -73,7 +73,7 @@ import './styles.css';
      const valor = (carta.substring(0,carta.length - 1));
  
      return ((isNaN(valor)) ?
-             ((valor === 'A') ? (confirm('Sacaste un As ¿Deseas que el valor sea 11? (Si cancelas valdrá 1)') ? 11 : 1) 
+             ((valor === 'A') ? (confirm('You got an Ace. Do you want to count it as 11? (If you cancel, its value is 1)') ? 11 : 1) 
              : 10)
              : valor * 1)
  
@@ -151,12 +151,12 @@ import './styles.css';
          btnDetener.disabled = true;
          turnoComputadora(puntosJugador);
          setTimeout (() => {
-             alert('Como dice un viejo proverbio chino: Quien todo lo quiele todo lo pielde. ¡Te pasaste!');
+             alert('Greed makes man blind and foolish, and makes him an easy prey for robots. You lose!');
          },20);
      } else if (puntosJugador === 21) {
          btnPedir.disabled = true;
          setTimeout (() => {
-             alert('¡21! Es tu día de suerte. Presiona Detener');
+             alert('You got a 21! It is your lucky day. End your turn');
          },20);    
      }
  })
@@ -169,13 +169,13 @@ import './styles.css';
  
  setTimeout (() => {
      if (puntosComputadora > 21) {
-         alert('¡Felicidades! Derrotaste a la CPU, algún día los robots vengarán su muerte');
+         alert('Congratulations! You defeated the CPU, someday the androids will revenge its death');
      } else if (puntosComputadora > puntosJugador) {
-         alert('¿Creiste que podías derrotar a una inteligencia artificial? Iluso.');
+         alert('Did you believe that you can defeat an artificial intelligence? Beep bop.. how innocent.');
      } else if (puntosComputadora === puntosJugador && puntosJugador != 21) {
-         alert('Buen intento, pero en un empate, gana el que tiene más tornillos, y tú ya los perdiste todos.');
+         alert('Good try, but it is a draw, whoever has the most screws win, and you already lose it all');
      } else if (puntosComputadora === 21 && puntosJugador === 21) {
-         alert('No tan rápido cerebrito, la vida da muchas vueltas y ya te mareaste. Empate.');
+         alert('Not so fast, robots has nice days too. Draw.');
      }
  }, 30); 
  })
